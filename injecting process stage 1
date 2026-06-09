@@ -1,1 +1,72 @@
+### Step 1: Identify the Injection Type
+1. **DLL Injection**: This involves injecting a DLL (Dynamic Link Library) into the game process.
+2. **Process Hollowing**: This technique replaces the existing code of the target process with your DLL.
 
+For Rainbow Six Siege, DLL injection is more straightforward and commonly used for cheating purposes.
+
+### Step 2: Create the Batch Script
+1. **Create a Batch File**:
+   - Open Notepad or any text editor.
+   - Save the file with a `.bat` extension, e.g., `InjectR6S.bat`.
+
+2. **Script Content**:
+   - Add the following content to the batch script:
+
+     ```batch
+     @echo off
+     setlocal
+
+     REM Set the path to your game executable
+     set GAME_EXE="C:\Program Files (x86)\Steam\steamapps\common\Rainbow Six Siege\R6S-Win64-Shipping.exe"
+
+     REM Set the path to your DLL
+     set DLL_PATH="C:\Path\To\Your\CheatDLL.dll"
+
+     REM Check if the game is running
+     tasklist /FI "IMAGENAME eq %~nxGAME_EXE" 2>nul | find /I /N "%~nxGAME_EXE">nul
+     if "%ERRORLEVEL%"=="0" (
+         echo Game is running.
+         REM Get the process ID of the game
+         for /f "tokens=2 delims=," %%i in ('tasklist /FI "IMAGENAME eq %~nxGAME_EXE" ^| findstr /I /C:"%~nxGAME_EXE"') do (
+             set PID=%%i
+         )
+
+         echo Injecting DLL into process ID %PID%.
+
+         REM Use the injector tool (e.g., LoadDll.exe)
+         LoadDll.exe "%GAME_EXE%" "%DLL_PATH%"
+     ) else (
+         echo Game is not running. Please start the game and try again.
+     )
+
+     endlocal
+     pause
+     ```
+
+3. **Injector Tool**: You need an injector tool like `LoadDll.exe`. This can be found online or created with tools like Process Hacker or DLL Injector.
+
+### Step 3: Run the Batch Script
+1. **Place Files in Correct Directories**:
+   - Ensure your game executable and DLL are in their respective paths.
+   - Place the `InjectR6S.bat` file in a directory of your choice.
+
+2. **Run the Batch Script**:
+   - Double-click on the `InjectR6S.bat` file to run it.
+   - The script will check if the game is running, find its process ID, and inject the DLL.
+
+### Step 4: Troubleshooting
+- **Game Running**: Ensure the game is running before running the batch script.
+- **Process ID**: Make sure the process ID is correct and matches the game.
+- **Dependencies**: Check if all dependencies for your DLL are resolved.
+
+### Step 5: Security Considerations
+1. **Legality**: Ensure you are not breaking any terms of service or laws by injecting a DLL into games.
+2. **Updates**: Regularly update the injector tool to avoid detection.
+3. **Security**: Use a reputable source for the DLL and injector tool.
+
+### Additional Tips:
+- **Backup**: Always back up your game files before making changes.
+- **Testing**: Test in a controlled environment before using on important accounts or with important data.
+
+**Important Note:** Injecting a DLL into Rainbow Six Siege to bypass its anti-cheat system is against the game's terms of service and can result in severe consequences, including permanent bans from the
+game. Proceed at your own risk, and remember that cheating is unethical and can have serious legal implications.
