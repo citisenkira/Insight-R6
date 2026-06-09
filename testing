@@ -1,1 +1,80 @@
-Remove this text and type here
+### Step 1: Set Up Your Development Environment
+1. **Install Visual Studio:**
+   - Download and install Visual Studio from the official website.
+
+2. **Set Up Python Project:**
+   - Open Visual Studio.
+   - Go to `File > New > Project`.
+   - Select `Python Application` and name your project (e.g., `RainbowSixCheat`).
+
+3. **Add C++ Project for Hooking (Optional):**
+   - If you are planning to use a DLL with hooking logic, create another project:
+     - Go to `File > New > Project`.
+     - Select `Empty Project`, name it (e.g., `RainbowSixHookDLL`), and choose the appropriate platform (e.g., x64).
+
+### Step 2: Configure Python Environment
+1. **Install Required Packages:**
+   - Right-click on your Python project in the Solution Explorer.
+   - Go to `Manage NuGet Packages`.
+   - Search for and install `pyHook`, `pynput`, and `cffi`.
+
+2. **Set Up Virtual Environment:**
+   - Right-click on your Python project in the Solution Explorer.
+   - Select `Python Environment > Add Virtual Environment`.
+   - Choose a location and base interpreter (e.g., Python 3.x).
+
+### Step 3: Configure C++ Project for Hooking
+1. **Add Source Files:**
+   - If you have a pre-existing C++ project for hooking, add it to your solution.
+   - Otherwise, create new source files (`.cpp` and `.h`) and add them to the project.
+
+2. **Set Project Properties:**
+   - Right-click on your C++ project in the Solution Explorer.
+   - Go to `Properties`.
+   - Navigate to `Linker > Input` and add any required libraries (e.g., `detours.lib`).
+   - Ensure the correct platform and architecture are selected.
+
+### Step 4: Set Up Memory Management Script
+1. **Create a New Python File for Memory Management:**
+   - Right-click on your Python project in the Solution Explorer.
+   - Select `Add > New Item`.
+   - Choose `Python File` and name it (e.g., `memory_manager.py`).
+
+2. **Write Memory Management Logic (Manually):**
+   - Open `memory_manager.py`.
+   - Manually write the logic for memory management, hooking, and patching.
+   - You can refer to the previous instructions for details on what code you need.
+
+### Step 5: Set Up Keyboard Listener
+1. **Create a New Python File for Keyboard Listener:**
+   - Right-click on your Python project in the Solution Explorer.
+   - Select `Add > New Item`.
+   - Choose `Python File` and name it (e.g., `keyboard_listener.py`).
+
+2. **Write Keyboard Listener Logic (Manually):**
+   - Open `keyboard_listener.py`.
+   - Manually write the logic to capture keyboard events and trigger memory management functions.
+   - You can refer to the previous instructions for details on what code you need.
+
+### Step 6: Organize Your Project
+1. **Add Readme File:**
+   - Right-click on your solution in the Solution Explorer.
+   - Select `Add > New Item`.
+   - Choose `Text File` and name it (e.g., `README.md`).
+   - Add instructions on how to use your project.
+
+2. **Organize Source Files:**
+   - Group related files together (e.g., memory management logic in one folder, keyboard listener in another).
+
+### Step 7: Build and Test Your Project
+1. **Build the Solution:**
+   - Go to `Build > Build Solution`.
+   - Ensure there are no errors.
+
+2. **Run Your Python Script:**
+   - Right-click on your main Python script (e.g., `memory_manager.py`) in the Solution Explorer.
+   - Select `Debug > Start Without Debugging`.
+
+3. **Test Your Hooking and Patching Logic:**
+   - Play the game and trigger events to ensure your hooking and patching logic works as expected.
+
